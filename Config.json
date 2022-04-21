@@ -1,0 +1,4 @@
+{
+  "token": "Tu token", //token del bot
+  "prefix":"!L"  //prefix del bot
+  }
