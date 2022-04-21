@@ -1,0 +1,18 @@
+const Discord = require('discord.js');
+const config = require('../config.json');
+
+module.exports.run = async (client, message, args) => {
+  let m = await message.reply("
+Enviando solicitud a websocket......")
+  let pong = new Discord.MessageEmbed()//Mensaje embed
+    .setAuthor(`🏓 Pong!`, message.author.displayAvatarURL)
+    .setTitle("
+Ping del cliente")
+    .setColor('#00FFFF')	
+    .setTimestamp()
+    .addField("Latency", `${m.createdTimestamp - message.createdTimestamp}ms`, true)
+    .addField("API Latency", `${Math.round(client.ws.ping)}ms`, true)
+    .setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
+     m.delete()
+  message.reply({ content: " ", embeds: [pong] })
+}
